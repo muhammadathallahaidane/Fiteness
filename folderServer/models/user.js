@@ -61,6 +61,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+    tableName: "Users",
     hooks: {
       beforeCreate: (instance) => {
         instance.password = hashPassword(instance.password)

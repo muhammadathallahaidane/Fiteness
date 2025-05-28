@@ -3,11 +3,12 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Equipment extends Model {
     static associate(models) {
-      Equipment.belongsToMany(models.WorkoutList, { 
-        through: "WorkoutListEquipments",
-        foreignKey: 'EquipmentId',
-        otherKey: 'WorkoutListId'
-      });
+      Equipment.hasMany(models.Exercise, { foreignKey: 'EquipmentId' });
+      // Equipment.belongsToMany(models.WorkoutList, {
+      //   through: models.Exercise,  // Gunakan models.Exercise bukan "Exercises"
+      //   foreignKey: 'EquipmentId',
+      //   otherKey: 'WorkoutListId'
+      // });
     }
   }
   Equipment.init({
@@ -19,14 +20,14 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Equipment name is required'
         },
         notEmpty: {
-          msg: 'Equipment name is required'
+          msg: 'Equipment name cannot be empty'
         }
       }
     }
   }, {
     sequelize,
     modelName: 'Equipment',
-    tableName: 'Equipments'
+    tableName: "Equipments"
   });
   return Equipment;
 };

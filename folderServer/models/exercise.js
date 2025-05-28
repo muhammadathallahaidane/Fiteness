@@ -3,7 +3,10 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Exercise extends Model {
     static associate(models) {
+      // Exercise belongs to WorkoutList
       Exercise.belongsTo(models.WorkoutList, { foreignKey: 'WorkoutListId' });
+      // Exercise belongs to Equipment
+      Exercise.belongsTo(models.Equipment, { foreignKey: 'EquipmentId' });
     }
   }
   Exercise.init({
@@ -20,6 +23,19 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    EquipmentId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Equipment',
+        key: 'id'
+      },
+      validate: {
+        notNull: {
+          msg: 'EquipmentId is required'
+        }
+      }
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -28,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Exercise name is required'
         },
         notEmpty: {
-          msg: 'Exercise name is required'
+          msg: 'Exercise name cannot be empty'
         }
       }
     },
@@ -37,30 +53,52 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notNull: {
-          msg: 'Steps are required'
+          msg: 'Exercise steps are required'
         },
         notEmpty: {
-          msg: 'Steps are required'
+          msg: 'Exercise steps cannot be empty'
         }
       }
     },
-    imageUrl: DataTypes.STRING,
-    youtubeUrl: DataTypes.STRING,
-    repetitions: {
-      type: DataTypes.STRING,
+    sets: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
         notNull: {
-          msg: 'Repetitions are required'
+          msg: 'Sets are required'
         },
-        notEmpty: {
-          msg: 'Repetitions are required'
+        min: {
+          args: [1],
+          msg: 'Sets must be at least 1'
+        }
+      }
+    },
+    repetitions: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Repetitions is required'
+        },
+        min: {
+          args: [1],
+          msg: 'Repetitions must be at least 1'
+        }
+      }
+    },
+    youtubeUrl: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        isUrl: {
+          msg: 'Must be a valid URL'
         }
       }
     }
   }, {
     sequelize,
     modelName: 'Exercise',
+    tableName: 'Exercises'
   });
   return Exercise;
 };

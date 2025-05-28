@@ -3,14 +3,15 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class WorkoutList extends Model {
     static associate(models) {
-      // WorkoutList.belongsTo(models.User, { foreignKey: 'UserId' });
-      // WorkoutList.belongsTo(models.BodyPart, { foreignKey: 'BodyPartId' });
-      WorkoutList.belongsToMany(models.Equipment, { 
-        through: "WorkoutListEquipments",
-        foreignKey: 'WorkoutListId',
-        otherKey: 'EquipmentId'
-      });
-      // WorkoutList.hasMany(models.Exercise, { foreignKey: 'WorkoutListId' });
+      WorkoutList.belongsTo(models.User, { foreignKey: 'UserId' });
+      WorkoutList.belongsTo(models.BodyPart, { foreignKey: 'BodyPartId' });
+      WorkoutList.hasMany(models.Exercise, { foreignKey: 'WorkoutListId' });
+
+      // WorkoutList.belongsToMany(models.Equipment, {
+      //   through: models.Exercise,
+      //   foreignKey: 'WorkoutListId',
+      //   otherKey: 'EquipmentId'
+      // });
     }
   }
   WorkoutList.init({
@@ -40,10 +41,11 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    name: DataTypes.STRING // Optional name for the workout list
+    name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'WorkoutList',
+    tableName: 'WorkoutLists'
   });
   return WorkoutList;
 };

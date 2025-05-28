@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('WorkoutListEquipments', {
+    await queryInterface.createTable('Exercises', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -29,6 +29,26 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      steps: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
+      sets: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      repetitions: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      youtubeUrl: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -40,6 +60,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('WorkoutListEquipments');
+    await queryInterface.dropTable('Exercises');
   }
 };

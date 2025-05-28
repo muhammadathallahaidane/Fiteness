@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret'; // Simpan secret di .env
-
+require("dotenv").config();
+const JWT_SECRET = process.env.JWT_SECRET
 const generateToken = (payload) => {
-    return jwt.sign(payload, JWT_SECRET, { expiresIn: '1d' }); // Token berlaku 1 hari
+    return jwt.sign(payload, JWT_SECRET, { expiresIn: '1d' });
 };
 
 const verifyToken = (token) => {
