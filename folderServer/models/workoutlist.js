@@ -3,14 +3,14 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class WorkoutList extends Model {
     static associate(models) {
-      WorkoutList.belongsTo(models.User, { foreignKey: 'UserId' });
-      WorkoutList.belongsTo(models.BodyPart, { foreignKey: 'BodyPartId' });
+      // WorkoutList.belongsTo(models.User, { foreignKey: 'UserId' });
+      // WorkoutList.belongsTo(models.BodyPart, { foreignKey: 'BodyPartId' });
       WorkoutList.belongsToMany(models.Equipment, { 
         through: "WorkoutListEquipments",
         foreignKey: 'WorkoutListId',
         otherKey: 'EquipmentId'
       });
-      WorkoutList.hasMany(models.Exercise, { foreignKey: 'WorkoutListId' });
+      // WorkoutList.hasMany(models.Exercise, { foreignKey: 'WorkoutListId' });
     }
   }
   WorkoutList.init({
