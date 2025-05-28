@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class Equipment extends Model {
     static associate(models) {
       Equipment.belongsToMany(models.WorkoutList, { 
-        through: models.WorkoutListEquipment,
+        through: "WorkoutListEquipments",
         foreignKey: 'EquipmentId',
         otherKey: 'WorkoutListId'
       });

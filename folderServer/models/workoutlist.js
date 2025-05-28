@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       WorkoutList.belongsTo(models.User, { foreignKey: 'UserId' });
       WorkoutList.belongsTo(models.BodyPart, { foreignKey: 'BodyPartId' });
       WorkoutList.belongsToMany(models.Equipment, { 
-        through: models.WorkoutListEquipment,
+        through: "WorkoutListEquipments",
         foreignKey: 'WorkoutListId',
         otherKey: 'EquipmentId'
       });
