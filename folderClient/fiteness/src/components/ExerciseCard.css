@@ -1,0 +1,163 @@
+.exercise-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exercise-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.exercise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.exercise-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.25rem;
+  flex: 1;
+}
+
+.equipment-tag {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.exercise-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.exercise-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.exercise-field label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.exercise-field span {
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.exercise-field input {
+  padding: 0.5rem;
+  border: 2px solid #e1e1e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.exercise-field input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.exercise-description {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e1e1e1;
+}
+
+.exercise-description p {
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.exercise-steps {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+.exercise-steps h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.steps-content {
+  line-height: 1.6;
+}
+
+.steps-content p {
+  margin: 8px 0;
+  padding-left: 0;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Styling untuk nomor dalam steps */
+.steps-content p:not(:empty) {
+  counter-increment: step-counter;
+  position: relative;
+  padding-left: 25px;
+}
+
+.steps-content p:not(:empty)::before {
+  content: counter(step-counter) ". ";
+  position: absolute;
+  left: 0;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.steps-content {
+  counter-reset: step-counter;
+}
+
+.exercise-video {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #fff3cd;
+  border-radius: 6px;
+  border: 1px solid #ffeaa7;
+}
+
+.exercise-video h4 {
+  margin: 0 0 8px 0;
+  color: #856404;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.youtube-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #dc3545;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.youtube-link:hover {
+  color: #c82333;
+  text-decoration: underline;
+}

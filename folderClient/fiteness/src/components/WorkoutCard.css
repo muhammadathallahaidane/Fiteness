@@ -1,0 +1,86 @@
+.workout-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.workout-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.workout-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.workout-card-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.workout-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.view-btn {
+  background: #28a745;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: background 0.2s ease;
+}
+
+.view-btn:hover {
+  background: #218838;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+.workout-info {
+  margin-bottom: 1rem;
+}
+
+.workout-info p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.exercise-preview h4 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.exercise-preview ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.exercise-preview li {
+  padding: 0.25rem 0;
+  color: #666;
+  font-size: 0.875rem;
+}

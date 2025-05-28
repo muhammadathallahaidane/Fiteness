@@ -1,6 +1,9 @@
 const { User } = require('../models');
 const { comparePassword } = require('../helpers/bcrypt');
 const { generateToken } = require('../helpers/jwt');
+const { OAuth2Client } = require('google-auth-library');
+
+const client = new OAuth2Client();
 
 class UserController {
     static async register(req, res, next) {
@@ -44,6 +47,54 @@ class UserController {
 
             res.status(200).json({ access_token, username: user.username, email: user.email });
         } catch (error) {
+            next(error);
+        }
+    }
+    
+    static async googleLogin(req, res, next) {
+        try {
+            const { id_token } = req.body;
+            
+            if (!id_token) {
+                throw { name: 'BadRequest', message: 'Google ID token is required' };
+            }
+            
+            const ticket = await client.verifyIdToken({
+                idToken: id_token,
+                audience: process.env.GOOGLE_CLIENT_ID || "656049011535-oht6cgegs4oe6.apps.googleusercontent.com"
+            });
+            
+            const payload = ticket.getPayload();
+            
+            // Cek apakah user sudah ada
+            let user = await User.findOne({ where: { email: payload.email } });
+            
+            if (!user) {
+                // Buat user baru jika belum ada
+                user = await User.create({
+                    username: payload.name,
+                    email: payload.email,
+                    // Generate random password untuk user Google
+                    password: Math.random().toString(36).slice(-8)
+                });
+            }
+            
+            // Generate JWT token
+            const tokenPayload = { 
+                id: user.id, 
+                email: user.email, 
+                username: user.username 
+            };
+            const access_token = generateToken(tokenPayload);
+            
+            res.status(200).json({ 
+                access_token, 
+                username: user.username, 
+                email: user.email 
+            });
+            
+        } catch (error) {
+            console.error('Google Login Error:', error);
             next(error);
         }
     }
