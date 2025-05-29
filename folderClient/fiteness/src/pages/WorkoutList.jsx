@@ -77,7 +77,6 @@ const WorkoutList = () => {
         )}
       </div>
 
-      // Dalam JSX, pastikan juga menggunakan equipments bukan equipment
       {showCreateModal && (
         <CreateWorkoutModal
           equipment={equipments} // Ubah dari equipment ke equipments

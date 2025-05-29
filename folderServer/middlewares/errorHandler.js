@@ -1,5 +1,5 @@
 const errorHandler = (err, req, res, next) => {
-    console.error(err); // Log error untuk debugging
+    console.log(err); // Log error untuk debugging
 
     let statusCode = 500;
     let message = 'Internal Server Error';

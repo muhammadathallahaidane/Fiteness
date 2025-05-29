@@ -6,7 +6,7 @@ import './CreateWorkoutModal.css';
 const CreateWorkoutModal = ({ equipment, bodyParts, onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
-    bodyPartId: '',
+    BodyPartId: '',  // ← Ubah ke PascalCase
     equipmentIds: []
   });
   
@@ -16,7 +16,8 @@ const CreateWorkoutModal = ({ equipment, bodyParts, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.bodyPartId) {
+    // Dan update semua referensi bodyPartId menjadi BodyPartId:
+    if (!formData.name || !formData.BodyPartId) {
       alert('Please fill in all required fields');
       return;
     }
@@ -82,8 +83,8 @@ const CreateWorkoutModal = ({ equipment, bodyParts, onClose }) => {
             <label htmlFor="bodyPart">Target Body Part *</label>
             <select
               id="bodyPart"
-              value={formData.bodyPartId}
-              onChange={(e) => setFormData({...formData, bodyPartId: e.target.value})}
+              value={formData.BodyPartId}
+              onChange={(e) => setFormData({...formData, BodyPartId: e.target.value})}
               required
             >
               <option value="">Select body part</option>

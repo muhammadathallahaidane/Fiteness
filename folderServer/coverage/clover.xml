@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1748506112740" clover="3.2.0">
+  <project timestamp="1748506112740" name="All files">
+    <metrics statements="304" coveredstatements="290" conditionals="107" coveredconditionals="91" methods="35" coveredmethods="34" elements="446" coveredelements="415" complexity="0" loc="304" ncloc="304" packages="5" files="20" classes="20"/>
+    <package name="controllers">
+      <metrics statements="146" coveredstatements="135" conditionals="61" coveredconditionals="54" methods="13" coveredmethods="12"/>
+      <file name="bodyPartController.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\controllers\bodyPartController.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+      </file>
+      <file name="equipmentController.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\controllers\equipmentController.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+      </file>
+      <file name="userController.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\controllers\userController.js">
+        <metrics statements="42" coveredstatements="42" conditionals="17" coveredconditionals="17" methods="3" coveredmethods="3"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="13" count="10" type="cond" truecount="5" falsecount="0"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="25" count="7" type="stmt"/>
+        <line num="30" count="7" type="stmt"/>
+        <line num="31" count="7" type="stmt"/>
+        <line num="32" count="7" type="cond" truecount="4" falsecount="0"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="36" count="5" type="stmt"/>
+        <line num="37" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="42" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="51" count="6" type="stmt"/>
+        <line num="56" count="6" type="stmt"/>
+        <line num="58" count="6" type="stmt"/>
+        <line num="60" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="64" count="5" type="stmt"/>
+        <line num="69" count="5" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
+        <line num="74" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="76" count="3" type="stmt"/>
+        <line num="85" count="4" type="stmt"/>
+        <line num="90" count="4" type="stmt"/>
+        <line num="92" count="4" type="stmt"/>
+        <line num="101" count="2" type="stmt"/>
+        <line num="102" count="2" type="stmt"/>
+        <line num="107" count="6" type="stmt"/>
+      </file>
+      <file name="workoutListController.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\controllers\workoutListController.js">
+        <metrics statements="92" coveredstatements="81" conditionals="44" coveredconditionals="37" methods="8" coveredmethods="7"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="19" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="34" count="7" type="stmt"/>
+        <line num="35" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="40" count="5" type="stmt"/>
+        <line num="43" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="48" count="4" type="stmt"/>
+        <line num="55" count="5" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="61" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="100" count="10" type="stmt"/>
+        <line num="105" count="3" type="stmt"/>
+        <line num="106" count="3" type="stmt"/>
+        <line num="107" count="3" type="stmt"/>
+        <line num="124" count="3" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="131" count="3" type="stmt"/>
+        <line num="132" count="3" type="stmt"/>
+        <line num="133" count="3" type="stmt"/>
+        <line num="135" count="3" type="stmt"/>
+        <line num="153" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="154" count="1" type="stmt"/>
+        <line num="160" count="1" type="stmt"/>
+        <line num="161" count="1" type="stmt"/>
+        <line num="163" count="2" type="stmt"/>
+        <line num="169" count="6" type="stmt"/>
+        <line num="170" count="6" type="stmt"/>
+        <line num="171" count="6" type="stmt"/>
+        <line num="172" count="6" type="stmt"/>
+        <line num="174" count="6" type="cond" truecount="4" falsecount="0"/>
+        <line num="175" count="1" type="stmt"/>
+        <line num="181" count="5" type="stmt"/>
+        <line num="185" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="186" count="1" type="stmt"/>
+        <line num="192" count="4" type="stmt"/>
+        <line num="196" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="197" count="1" type="stmt"/>
+        <line num="204" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="205" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="207" count="3" type="stmt"/>
+        <line num="209" count="3" type="stmt"/>
+        <line num="213" count="3" type="stmt"/>
+        <line num="218" count="2" type="stmt"/>
+        <line num="219" count="2" type="stmt"/>
+        <line num="220" count="2" type="stmt"/>
+        <line num="222" count="2" type="stmt"/>
+        <line num="226" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="227" count="1" type="stmt"/>
+        <line num="234" count="1" type="stmt"/>
+        <line num="237" count="1" type="stmt"/>
+        <line num="239" count="1" type="stmt"/>
+        <line num="241" count="1" type="stmt"/>
+        <line num="246" count="6" type="stmt"/>
+        <line num="250" count="4" type="stmt"/>
+        <line num="256" count="4" type="stmt"/>
+        <line num="258" count="4" type="stmt"/>
+        <line num="277" count="4" type="stmt"/>
+        <line num="278" count="4" type="stmt"/>
+        <line num="279" count="4" type="stmt"/>
+        <line num="282" count="4" type="stmt"/>
+        <line num="284" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="285" count="1" type="stmt"/>
+        <line num="289" count="1" type="stmt"/>
+        <line num="296" count="1" type="stmt"/>
+        <line num="297" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="304" count="1" type="stmt"/>
+        <line num="305" count="1" type="stmt"/>
+        <line num="312" count="0" type="stmt"/>
+        <line num="314" count="4" type="stmt"/>
+        <line num="315" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="316" count="2" type="stmt"/>
+        <line num="321" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="helpers">
+      <metrics statements="26" coveredstatements="24" conditionals="4" coveredconditionals="2" methods="5" coveredmethods="5"/>
+      <file name="bcrypt.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\helpers\bcrypt.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="4" count="79" type="stmt"/>
+        <line num="5" count="79" type="stmt"/>
+        <line num="8" count="11" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+      </file>
+      <file name="gemini.api.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\helpers\gemini.api.js">
+        <metrics statements="11" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="34" count="4" type="cond" truecount="2" falsecount="2"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="41" count="6" type="stmt"/>
+      </file>
+      <file name="jwt.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\helpers\jwt.js">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="7" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="3" count="7" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="5" count="68" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="9" count="37" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="middlewares">
+      <metrics statements="42" coveredstatements="42" conditionals="32" coveredconditionals="28" methods="3" coveredmethods="3"/>
+      <file name="authentication.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\middlewares\authentication.js">
+        <metrics statements="18" coveredstatements="18" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="45" type="stmt"/>
+        <line num="6" count="45" type="stmt"/>
+        <line num="7" count="45" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="11" count="37" type="stmt"/>
+        <line num="12" count="37" type="cond" truecount="4" falsecount="0"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="16" count="35" type="stmt"/>
+        <line num="17" count="31" type="stmt"/>
+        <line num="18" count="31" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="30" type="stmt"/>
+        <line num="28" count="30" type="stmt"/>
+        <line num="30" count="15" type="stmt"/>
+        <line num="34" count="6" type="stmt"/>
+      </file>
+      <file name="errorHandler.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\middlewares\errorHandler.js">
+        <metrics statements="24" coveredstatements="24" conditionals="24" coveredconditionals="20" methods="2" coveredmethods="2"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="54" type="stmt"/>
+        <line num="4" count="54" type="stmt"/>
+        <line num="5" count="54" type="stmt"/>
+        <line num="7" count="54" type="cond" truecount="4" falsecount="0"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="48" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="12" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="33" type="cond" truecount="4" falsecount="0"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="29" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="28" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="7" type="stmt"/>
+        <line num="21" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="21" type="cond" truecount="1" falsecount="1"/>
+        <line num="23" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="21" type="stmt"/>
+        <line num="27" count="54" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="models">
+      <metrics statements="51" coveredstatements="50" conditionals="10" coveredconditionals="7" methods="14" coveredmethods="14"/>
+      <file name="bodypart.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\models\bodypart.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="6" count="11" type="stmt"/>
+        <line num="9" count="11" type="stmt"/>
+        <line num="27" count="11" type="stmt"/>
+      </file>
+      <file name="equipment.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\models\equipment.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="6" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="32" count="11" type="stmt"/>
+      </file>
+      <file name="exercise.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\models\exercise.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="9" count="11" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="103" count="11" type="stmt"/>
+      </file>
+      <file name="index.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\models\index.js">
+        <metrics statements="21" coveredstatements="20" conditionals="10" coveredconditionals="7" methods="3" coveredmethods="3"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+        <line num="6" count="11" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="8" count="11" type="cond" truecount="1" falsecount="1"/>
+        <line num="9" count="11" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
+        <line num="13" count="11" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
+        <line num="19" count="11" type="stmt"/>
+        <line num="22" count="66" type="stmt"/>
+        <line num="30" count="55" type="stmt"/>
+        <line num="31" count="55" type="stmt"/>
+        <line num="34" count="11" type="stmt"/>
+        <line num="35" count="55" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="55" type="stmt"/>
+        <line num="40" count="11" type="stmt"/>
+        <line num="41" count="11" type="stmt"/>
+        <line num="43" count="11" type="stmt"/>
+      </file>
+      <file name="user.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\models\user.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="2" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+        <line num="8" count="11" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="67" count="73" type="stmt"/>
+        <line num="71" count="11" type="stmt"/>
+      </file>
+      <file name="workoutlist.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\models\workoutlist.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="2" count="11" type="stmt"/>
+        <line num="3" count="11" type="stmt"/>
+        <line num="6" count="11" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="8" count="11" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="50" count="11" type="stmt"/>
+      </file>
+    </package>
+    <package name="routes">
+      <metrics statements="39" coveredstatements="39" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="bodyPartRouter.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\routes\bodyPartRouter.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+      </file>
+      <file name="equipmentRouter.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\routes\equipmentRouter.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+      </file>
+      <file name="index.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\routes\index.js">
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+      </file>
+      <file name="userRouter.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\routes\userRouter.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+      </file>
+      <file name="workoutListRouter.js" path="C:\Users\ThinkPad T470p\Documents\Hacktive8\Phase2\Week3\IP-Tala-HCK83\folderServer\routes\workoutListRouter.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

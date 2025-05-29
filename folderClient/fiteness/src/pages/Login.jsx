@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router';
 import { loginUser, clearError } from '../store/slices/authSlice';
 import GoogleLoginButton from '../components/GoogleLoginButton';
 import './Auth.css';
+import StravaLoginButton from '../components/StravaLoginButton';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -73,6 +74,7 @@ const Login = () => {
         </form>
         
         <GoogleLoginButton />
+        <StravaLoginButton />
         
         <p className="auth-link">
           Don't have an account? <Link to="/register">Register here</Link>

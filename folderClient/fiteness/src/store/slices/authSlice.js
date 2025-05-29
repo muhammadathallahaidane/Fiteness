@@ -53,6 +53,22 @@ export const googleLogin = createAsyncThunk(
   }
 );
 
+// Tambahkan async thunk untuk Strava login
+export const stravaLogin = createAsyncThunk(
+  'auth/stravaLogin',
+  async (code, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${API_URL}/users/strava-login`, {
+        code,
+      });
+      localStorage.setItem('token', response.data.access_token);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -124,7 +140,7 @@ const authSlice = createSlice({
           text: action.payload,
         });
       })
-      // Google Login - TAMBAHAN BARU
+      // Google Login
       .addCase(googleLogin.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -147,6 +163,32 @@ const authSlice = createSlice({
         Swal.fire({
           icon: 'error',
           title: 'Google Login Gagal!',
+          text: action.payload,
+        });
+      })
+      // Strava Login - DIPINDAHKAN KE DALAM BUILDER
+      .addCase(stravaLogin.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(stravaLogin.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isAuthenticated = true;
+        state.user = action.payload.user;
+        state.token = action.payload.access_token;
+        Swal.fire({
+          icon: 'success',
+          title: 'Strava Login Berhasil!',
+          text: 'Selamat datang di Fitness App',
+          timer: 2000,
+        });
+      })
+      .addCase(stravaLogin.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+        Swal.fire({
+          icon: 'error',
+          title: 'Strava Login Gagal!',
           text: action.payload,
         });
       });

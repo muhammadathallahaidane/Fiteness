@@ -9,6 +9,7 @@ import WorkoutList from './pages/WorkoutList';
 import WorkoutDetail from './pages/WorkoutDetail';
 import CreateWorkout from './pages/CreateWorkout';
 import ProtectedRoute from './components/ProtectedRoute';
+import StravaCallback from './pages/StravaCallback';
 // import './App.css'; // HAPUS BARIS INI
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/auth/strava/callback" element={<StravaCallback />} />
               <Route path="/register" element={<Register />} />
               <Route
                 path="/workouts"
