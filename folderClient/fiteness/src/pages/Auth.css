@@ -203,53 +203,27 @@
   }
 }
 
-.social-login-divider {
+.divider {
+  display: flex;
+  align-items: center;
   margin: 20px 0;
   text-align: center;
-  position: relative;
 }
 
-.social-login-divider::before {
+.divider::before,
+.divider::after {
   content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
+  flex: 1;
   height: 1px;
   background: #ddd;
-  z-index: 1;
 }
 
-.social-login-divider span {
-  background: white;
+.divider span {
   padding: 0 15px;
   color: #666;
   font-size: 14px;
-  position: relative;
-  z-index: 2;
 }
 
-.social-login-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.youtube-login-container,
-.google-login-container {
-  width: 100%;
-}
-
-/* YouTube button custom styling */
-.youtube-login-container button {
-  background-color: #FF0000 !important;
-  border: none !important;
-}
-
-.youtube-login-container button:hover {
-  background-color: #CC0000 !important;
-}
 #google-signin-button {
   display: flex;
   justify-content: center;

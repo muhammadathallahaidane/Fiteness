@@ -102,58 +102,6 @@ class UserController {
             next(error);
         }
     }
-
-    // Tambahkan method ini setelah googleLogin method
-    static async youtubeLogin(req, res, next) {
-        try {
-            const { idToken } = req.body;
-            
-            if (!idToken) {
-                throw { name: 'BadRequest', message: 'ID Token is required' };
-            }
-    
-            // Verify the ID token (sama seperti Google login)
-            const ticket = await client.verifyIdToken({
-                idToken: idToken,
-                audience: process.env.GOOGLE_CLIENT_ID,
-            });
-    
-            const payload = ticket.getPayload();
-            const { email, name, picture } = payload;
-    
-            if (!email) {
-                throw { name: 'BadRequest', message: 'Email not provided by YouTube/Google' };
-            }
-    
-            // Check if user already exists
-            let user = await User.findOne({ where: { email } });
-            
-            if (!user) {
-                // Create new user
-                user = await User.create({
-                    username: name || email.split('@')[0],
-                    email: email,
-                    password: Math.random().toString(36), // Random password for OAuth users
-                });
-            }
-    
-            // Generate JWT token
-            const tokenPayload = { id: user.id, email: user.email, username: user.username };
-            const access_token = generateToken(tokenPayload);
-    
-            res.status(200).json({
-                access_token,
-                user: {
-                    id: user.id,
-                    username: user.username,
-                    email: user.email
-                }
-            });
-        } catch (error) {
-            console.error('YouTube login error:', error);
-            next(error);
-        }
-    }
 }
 
 module.exports = UserController;
