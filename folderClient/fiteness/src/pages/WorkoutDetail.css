@@ -1,11 +1,21 @@
 .workout-detail-container {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: transparent; /* Remove background since it's now on body */
   min-height: 100vh;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   padding: 2rem;
   padding-top: 100px;
   color: #ffffff;
+}
+
+@media (min-width: 1200px) {
+  .workout-detail-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+    padding-top: 100px;
+  }
 }
 
 .workout-detail-header {
@@ -20,6 +30,39 @@
   border-radius: 16px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .workout-detail-container {
+    padding: 1rem;
+    padding-top: 100px;
+  }
+  
+  .workout-detail-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .header-actions {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .back-btn,
+  .edit-btn,
+  .cancel-btn {
+    width: 100%;
+    max-width: 280px;
+  }
 }
 
 .back-btn {

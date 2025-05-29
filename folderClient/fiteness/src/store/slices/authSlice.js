@@ -98,7 +98,11 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload.user;
+        // Perbaikan: buat objek user dari response data
+        state.user = {
+          username: action.payload.username,
+          email: action.payload.email
+        };
         state.token = action.payload.access_token;
         state.isAuthenticated = true;
         Swal.fire({

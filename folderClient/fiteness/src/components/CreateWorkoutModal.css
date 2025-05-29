@@ -88,6 +88,12 @@
   font-size: 1rem;
   transition: border-color 0.3s ease;
   box-sizing: border-box;
+  background: white;
+  color: #333; /* Menambahkan warna teks gelap */
+}
+
+.modal-content .form-group input::placeholder {
+  color: #666; /* Warna placeholder yang lebih gelap */
 }
 
 .modal-content .form-group input:focus,

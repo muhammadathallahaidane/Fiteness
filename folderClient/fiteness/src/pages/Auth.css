@@ -109,61 +109,70 @@
   position: relative;
 }
 
+/* Label styling - perbaiki visibilitas */
 .form-group label {
   display: block;
   margin-bottom: 0.75rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff !important;
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  opacity: 1;
 }
 
+/* Input styling - perbaiki warna background dan text */
 .form-group input {
   width: 100%;
   padding: 1rem 1.25rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3) !important; /* Background gelap transparan */
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   font-size: 1rem;
-  color: #ffffff;
+  color: #ffffff !important; /* Text putih */
   transition: all 0.3s ease;
   box-sizing: border-box;
 }
 
+/* Placeholder styling */
 .form-group input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
+/* Focus state - jangan ubah background jadi putih */
 .form-group input:focus {
   outline: none;
   border-color: #ffd700;
-  background: rgba(255, 215, 0, 0.05);
-  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4) !important; /* Tetap gelap saat focus */
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+  color: #ffffff !important;
 }
 
-.form-group input.error {
-  border-color: #ff4757;
-  background: rgba(255, 71, 87, 0.05);
+/* Saat ada teks yang diketik - jangan ubah jadi putih */
+.form-group input:not(:placeholder-shown) {
+  background: rgba(0, 0, 0, 0.4) !important; /* Tetap gelap saat ada teks */
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff !important;
 }
 
-/* Password Input */
-.password-input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
+/* Autocomplete styling - penting untuk mencegah browser mengubah warna */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.4) inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
 }
 
-.password-input-wrapper input {
-  padding-right: 4rem;
-}
-
+/* Password toggle button */
 .password-toggle {
   position: absolute;
   right: 1rem;
   background: none;
   border: none;
-  color: rgba(255, 215, 0, 0.7);
+  color: rgba(255, 215, 0, 0.8) !important;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -172,7 +181,7 @@
 }
 
 .password-toggle:hover {
-  color: #ffd700;
+  color: #ffd700 !important;
 }
 
 /* Password Strength */

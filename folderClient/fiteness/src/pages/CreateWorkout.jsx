@@ -116,7 +116,6 @@ const CreateWorkout = () => {
             </select>
           </div>
           
-          // Di bagian render, ganti 'equipment' dengan 'equipments'
           <div className="form-group">
             <label>Equipment (Select 1-2) *</label>
             <div className="equipment-grid">

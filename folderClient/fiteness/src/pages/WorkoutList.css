@@ -1,11 +1,21 @@
-/* Premium Dark Theme for Workout List */
+/* Premium Theme for Workout List */
 .workout-list-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   padding: 2rem;
   padding-top: 100px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  background: transparent; /* Remove background since it's now on body */
+}
+
+@media (min-width: 1200px) {
+  .workout-list-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+    padding-top: 100px;
+  }
 }
 
 .workout-header {
@@ -54,6 +64,40 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .workout-list-container {
+    padding: 1rem;
+    padding-top: 100px;
+  }
+  
+  .workout-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .workout-header h1 {
+    font-size: 2rem;
+  }
+  
+  .workout-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .workout-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .create-btn {
+    width: 100%;
+    max-width: 280px;
+  }
 }
 
 .empty-state {

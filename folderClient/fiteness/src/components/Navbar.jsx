@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate, useLocation } from 'react-router';
 import { logout } from '../store/slices/authSlice';
@@ -9,33 +9,56 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogout = () => {
     dispatch(logout());
     navigate('/');
+    setIsMobileMenuOpen(false);
   };
 
   const isActive = (path) => location.pathname === path;
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand" onClick={closeMobileMenu}>
           <span className="brand-text">FITENESS</span>
         </Link>
         
-        <div className="navbar-nav">
+        {/* Hamburger Menu Button */}
+        <button 
+          className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        
+        <div className={`navbar-nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           {isAuthenticated ? (
             <>
               <Link 
                 to="/workouts" 
                 className={`nav-link ${isActive('/workouts') ? 'active' : ''}`}
+                onClick={closeMobileMenu}
               >
                 <span className="nav-text">My Workouts</span>
               </Link>
               <Link 
                 to="/create-workout" 
-                className={`nav-link ${isActive('/create-workout') ? 'active' : ''}`}
+                className={`nav-link create-workout-btn ${isActive('/create-workout') ? 'active' : ''}`}
+                onClick={closeMobileMenu}
               >
                 <span className="nav-text">Create Workout</span>
               </Link>
@@ -56,14 +79,16 @@ const Navbar = () => {
               <Link 
                 to="/login" 
                 className={`nav-link ${isActive('/login') ? 'active' : ''}`}
+                onClick={closeMobileMenu}
               >
                 <span className="nav-text">Login</span>
               </Link>
               <Link 
                 to="/register" 
-                className="nav-button register"
+                className={`nav-link ${isActive('/register') ? 'active' : ''}`}
+                onClick={closeMobileMenu}
               >
-                <span className="nav-text">Get Started</span>
+                <span className="nav-text">Register</span>
               </Link>
             </>
           )}

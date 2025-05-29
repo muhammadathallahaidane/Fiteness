@@ -10,9 +10,6 @@ const Home = () => {
     <div className="home">
       <div className="hero-section">
         <div className="hero-content">
-          <div className="hero-badge">
-            <span className="badge-text">AI-Powered Fitness</span>
-          </div>
           
           <h1 className="hero-title">
             Transform Your Body with

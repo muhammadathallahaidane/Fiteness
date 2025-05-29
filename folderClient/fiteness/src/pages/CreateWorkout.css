@@ -31,8 +31,42 @@
 
 .create-workout-header h1 {
   margin: 0;
-  color: #333;
+  color: white; /* Mengubah dari #333 menjadi putih */
   font-size: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Menambahkan shadow untuk kontras */
+  font-weight: 700;
+}
+
+/* Menambahkan styling untuk header container */
+.create-workout-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem 0; /* Menambahkan padding */
+}
+
+/* Memperbaiki styling back button agar lebih terlihat */
+.back-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .create-workout-form {
@@ -46,13 +80,30 @@
   margin-bottom: 1.5rem;
 }
 
+/* Perbaikan untuk semua label dan teks dalam form */
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #2c3e50 !important; /* Warna gelap untuk kontras yang baik */
   font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
+/* Perbaikan untuk label equipment */
+.equipment-item label {
+  margin: 0;
+  cursor: pointer;
+  font-weight: normal;
+  flex: 1;
+  color: #2c3e50 !important; /* Warna gelap untuk kontras yang baik */
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 1rem;
+}
+
+/* Memastikan input text juga terlihat */
 .form-group input,
 .form-group select {
   width: 100%;
@@ -62,6 +113,19 @@
   font-size: 1rem;
   transition: border-color 0.3s ease;
   box-sizing: border-box;
+  background: white;
+  color: #2c3e50 !important; /* Warna gelap untuk teks input */
+}
+
+/* Placeholder juga harus terlihat */
+.form-group input::placeholder {
+  color: #7f8c8d !important; /* Abu-abu sedang untuk placeholder */
+}
+
+/* Memastikan teks dalam select option terlihat */
+.form-group select option {
+  color: #2c3e50 !important;
+  background: white;
 }
 
 .form-group input:focus,
