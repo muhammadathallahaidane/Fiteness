@@ -57,6 +57,13 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Password must be at least 5 characters long'
         }
       }
+    },
+    StravaId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: {
+        msg: 'Strava account already linked to another user'
+      }
     }
   }, {
     sequelize,

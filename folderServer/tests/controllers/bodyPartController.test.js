@@ -58,4 +58,6 @@ describe('BodyPart Controller', () => {
       BodyPart.findAll.mockRestore();
     });
   });
+  
+  // CRUD operations tests removed
 });

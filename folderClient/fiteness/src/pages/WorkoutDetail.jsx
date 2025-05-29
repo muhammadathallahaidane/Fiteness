@@ -5,6 +5,33 @@ import { fetchWorkoutListById, updateExercise } from '../store/slices/workoutSli
 import ExerciseCard from '../components/ExerciseCard';
 import './WorkoutDetail.css';
 
+// PINDAHKAN FUNGSI INI KE ATAS!
+const formatDate = (dateString) => {
+  console.log('Formatting date:', dateString, 'Type:', typeof dateString);
+  
+  if (!dateString || dateString === null || dateString === undefined) {
+    return 'Date not available';
+  }
+  
+  // Handle jika dateString adalah object Date
+  let date;
+  if (dateString instanceof Date) {
+    date = dateString;
+  } else {
+    date = new Date(dateString);
+  }
+  
+  if (isNaN(date.getTime())) {
+    return 'Invalid date format';
+  }
+  
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+};
+
 const WorkoutDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -120,7 +147,7 @@ const WorkoutDetail = () => {
         <div className="workout-meta">
           <p><strong>Target Body Part:</strong> {currentWorkoutList.BodyPart?.name}</p>
           <p><strong>Total Exercises:</strong> {exercises.length}</p>
-          <p><strong>Created:</strong> {new Date(currentWorkoutList.createdAt).toLocaleDateString()}</p>
+          <p><strong>Created:</strong> {formatDate(currentWorkoutList.createdAt)}</p>
         </div>
       </div>
 
@@ -142,3 +169,5 @@ const WorkoutDetail = () => {
 };
 
 export default WorkoutDetail;
+
+// HAPUS FUNGSI formatDate YANG DI BAWAH INI!

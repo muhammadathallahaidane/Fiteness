@@ -1,14 +1,21 @@
+/* Premium Dark Theme for Workout Card */
 .workout-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  color: white;
 }
 
 .workout-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.3);
 }
 
 .workout-card-header {
@@ -16,46 +23,63 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .workout-card-header h3 {
   margin: 0;
-  color: #333;
-  font-size: 1.25rem;
+  color: #d4af37;
+  font-size: 1.3rem;
+  font-weight: 600;
+  flex: 1;
+  min-width: 200px;
 }
 
 .workout-actions {
   display: flex;
   gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .view-btn {
-  background: #28a745;
+  background: linear-gradient(135d, #28a745, #20c997);
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-size: 0.875rem;
-  transition: background 0.2s ease;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  border: 1px solid rgba(40, 167, 69, 0.3);
 }
 
 .view-btn:hover {
-  background: #218838;
+  background: linear-gradient(135deg, #20c997, #28a745);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
 }
 
 .delete-btn {
-  background: #dc3545;
+  background: linear-gradient(135deg, #dc3545, #c82333);
   color: white;
-  border: none;
+  border: 1px solid rgba(220, 53, 69, 0.3);
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .delete-btn:hover {
-  background: #c82333;
+  background: linear-gradient(135deg, #c82333, #dc3545);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
 }
 
 .workout-info {
@@ -63,14 +87,29 @@
 }
 
 .workout-info p {
-  margin: 0.5rem 0;
-  color: #666;
+  margin: 0.75rem 0;
+  color: rgba(255, 255, 255, 0.8);
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+.workout-info strong {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+.exercise-preview {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .exercise-preview h4 {
-  margin: 0 0 0.5rem 0;
-  color: #333;
+  margin: 0 0 0.75rem 0;
+  color: #d4af37;
   font-size: 1rem;
+  font-weight: 600;
 }
 
 .exercise-preview ul {
@@ -80,7 +119,87 @@
 }
 
 .exercise-preview li {
-  padding: 0.25rem 0;
-  color: #666;
-  font-size: 0.875rem;
+  padding: 0.4rem 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  word-wrap: break-word;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.exercise-preview li::before {
+  content: "•";
+  color: #d4af37;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .workout-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .workout-card-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .workout-card-header h3 {
+    font-size: 1.1rem;
+    min-width: auto;
+  }
+  
+  .workout-actions {
+    justify-content: flex-end;
+    width: 100%;
+  }
+  
+  .view-btn, .delete-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .workout-card {
+    padding: 0.75rem;
+  }
+  
+  .workout-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .view-btn, .delete-btn {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .workout-card-header h3 {
+    font-size: 1rem;
+  }
+  
+  .workout-info p {
+    font-size: 0.85rem;
+  }
+  
+  .exercise-preview li {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .workout-card {
+    padding: 1.25rem;
+  }
+  
+  .workout-card-header h3 {
+    font-size: 1.2rem;
+  }
 }

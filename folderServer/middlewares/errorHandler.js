@@ -7,6 +7,9 @@ const errorHandler = (err, req, res, next) => {
     if (err.name === 'SequelizeValidationError' || err.name === 'SequelizeUniqueConstraintError') {
         statusCode = 400;
         message = err.errors.map(e => e.message).join(', ');
+    } else if (err.name === 'BadRequest') {
+        statusCode = 400;
+        message = err.message || 'Bad Request';
     } else if (err.name === 'Unauthorized') {
         statusCode = 401;
         message = err.message || 'Authentication failed';
@@ -19,10 +22,14 @@ const errorHandler = (err, req, res, next) => {
     } else if (err.name === 'NotFound') {
         statusCode = 404;
         message = err.message || 'Resource not found';
-    } else if (err.message) { // Untuk error kustom dengan message
-        statusCode = err.statusCode || statusCode; // Ambil statusCode dari error jika ada
+    } else if (err.name === 'AIError') {
+        statusCode = 500;
+        message = err.message || 'AI service error';
+    } else if (err.statusCode && err.message) { // Hanya untuk error yang sudah memiliki statusCode
+        statusCode = err.statusCode;
         message = err.message;
     }
+    // Hapus kondisi else if (err.message) yang lama
 
     res.status(statusCode).json({ message });
 };

@@ -56,3 +56,9 @@ describe('User Model', () => {
     })).rejects.toThrow();
   });
 });
+
+describe('Validation errors', () => {
+  it('should throw validation error for missing email', async () => {
+    await expect(User.create({ username: 'test' })).rejects.toThrow(/notNull Violation/);
+  });
+});

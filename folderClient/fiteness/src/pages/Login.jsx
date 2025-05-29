@@ -11,6 +11,7 @@ const Login = () => {
     email: '',
     password: '',
   });
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -43,42 +44,88 @@ const Login = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2>Login</h2>
+        <div className="auth-header">
+          <div className="brand-logo">
+            <h1 className="brand-name">FITENESS</h1>
+          </div>
+          <h2 className="auth-title">Welcome Back</h2>
+          <p className="auth-subtitle">Sign in to access your training dashboard</p>
+        </div>
+        
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email Address</label>
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              placeholder="Enter your email address"
               required
             />
           </div>
+          
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+            <div className="password-input-wrapper">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter your password"
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? 'HIDE' : 'SHOW'}
+              </button>
+            </div>
           </div>
-          {error && <div className="error-message">{error}</div>}
-          <button type="submit" className="btn btn-primary" disabled={isLoading}>
-            {isLoading ? 'Logging in...' : 'Login'}
+          
+          {error && (
+            <div className="error-message">
+              <div className="error-content">
+                <strong>Authentication Failed</strong>
+                <span>{error}</span>
+              </div>
+            </div>
+          )}
+          
+          <button type="submit" className="auth-button primary" disabled={isLoading}>
+            {isLoading ? (
+              <>
+                <div className="loading-spinner"></div>
+                <span>AUTHENTICATING...</span>
+              </>
+            ) : (
+              'SIGN IN'
+            )}
           </button>
         </form>
         
-        <GoogleLoginButton />
-        <StravaLoginButton />
+        <div className="auth-divider">
+          <span>OR CONTINUE WITH</span>
+        </div>
         
-        <p className="auth-link">
-          Don't have an account? <Link to="/register">Register here</Link>
-        </p>
+        <div className="social-login-section">
+          <GoogleLoginButton />
+          <StravaLoginButton />
+        </div>
+        
+        <div className="auth-footer">
+          <p>
+            Don't have an account?{' '}
+            <Link to="/register" className="auth-link">
+              Create Account
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );

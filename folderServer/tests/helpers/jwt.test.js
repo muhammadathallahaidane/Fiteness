@@ -36,5 +36,9 @@ describe('JWT Helper', () => {
         verifyToken('invalid-token');
       }).toThrow();
     });
+    
+    it('should throw error on bad token', async () => {
+      await expect(() => verifyToken('bad.token')).toThrow();
+    });
   });
 });

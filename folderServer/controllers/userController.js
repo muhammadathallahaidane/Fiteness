@@ -157,7 +157,6 @@ class UserController {
       }
   
       // Cek apakah user sudah ada berdasarkan Strava ID atau email
-      // PERBAIKAN: Gunakan Op.or untuk Sequelize v6+
       const { Op } = require('sequelize');
       
       let user = await User.findOne({ 
@@ -170,9 +169,19 @@ class UserController {
       });
   
       if (!user) {
-        // Buat user baru
-        const username = athlete.username || 
+        // Generate username yang unik
+        let baseUsername = athlete.username || 
                       `${athlete.firstname || 'User'}_${athlete.lastname || athlete.id}`;
+        
+        // Cek apakah username sudah ada, jika ya tambahkan suffix
+        let username = baseUsername;
+        let counter = 1;
+        
+        while (await User.findOne({ where: { username } })) {
+          username = `${baseUsername}_${counter}`;
+          counter++;
+        }
+        
         const email = athlete.email || `strava_${athlete.id}@temp.com`;
         
         user = await User.create({

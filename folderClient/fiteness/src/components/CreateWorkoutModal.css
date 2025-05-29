@@ -9,17 +9,20 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .modal-content {
   background: white;
   border-radius: 12px;
   padding: 0;
-  width: 90%;
+  width: 100%;
   max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  margin: auto;
 }
 
 .modal-header {
@@ -28,11 +31,16 @@
   align-items: center;
   padding: 1.5rem;
   border-bottom: 1px solid #e1e1e1;
+  position: sticky;
+  top: 0;
+  background: white;
+  border-radius: 12px 12px 0 0;
 }
 
 .modal-header h2 {
   margin: 0;
   color: #333;
+  font-size: 1.5rem;
 }
 
 .close-btn {
@@ -47,10 +55,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
 }
 
 .close-btn:hover {
   color: #333;
+  background: #f0f0f0;
 }
 
 .modal-content form {
@@ -76,6 +87,7 @@
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .modal-content .form-group input:focus,
@@ -99,6 +111,7 @@
   border: 2px solid #e1e1e1;
   border-radius: 6px;
   transition: border-color 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .modal-content .equipment-item:hover {
@@ -109,6 +122,7 @@
 .modal-content .equipment-item input[type="checkbox"] {
   width: auto;
   margin: 0;
+  cursor: pointer;
 }
 
 .modal-content .equipment-item label {
@@ -116,6 +130,7 @@
   cursor: pointer;
   font-weight: normal;
   font-size: 0.9rem;
+  flex: 1;
 }
 
 .modal-actions {
@@ -123,6 +138,8 @@
   gap: 1rem;
   justify-content: flex-end;
   margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e1e1e1;
 }
 
 .modal-actions .cancel-btn {
@@ -133,6 +150,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s ease;
+  font-size: 1rem;
 }
 
 .modal-actions .cancel-btn:hover {
@@ -148,6 +166,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s ease;
+  font-size: 1rem;
 }
 
 .modal-actions .submit-btn:hover:not(:disabled) {
@@ -157,4 +176,100 @@
 .modal-actions .submit-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 0.5rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+  
+  .modal-content {
+    max-height: 95vh;
+    width: 100%;
+    margin: 0;
+  }
+  
+  .modal-header {
+    padding: 1rem;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .modal-content form {
+    padding: 1rem;
+  }
+  
+  .modal-content .equipment-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .modal-content .equipment-item {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .modal-actions .cancel-btn,
+  .modal-actions .submit-btn {
+    width: 100%;
+    padding: 0.875rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 0.25rem;
+    padding-top: 1rem;
+  }
+  
+  .modal-header {
+    padding: 0.75rem;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .modal-content form {
+    padding: 0.75rem;
+  }
+  
+  .modal-content .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .modal-content .form-group input,
+  .modal-content .form-group select {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .modal-content .equipment-item {
+    padding: 0.6rem 0.4rem;
+  }
+  
+  .modal-content .equipment-item label {
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .modal-content {
+    max-width: 500px;
+  }
+  
+  .modal-content .equipment-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }

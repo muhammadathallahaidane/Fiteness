@@ -2,6 +2,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
+  padding-top: 100px; /* Account for fixed navbar */
 }
 
 .create-workout-header {
@@ -9,6 +10,7 @@
   align-items: center;
   gap: 1rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .back-btn {
@@ -20,6 +22,7 @@
   cursor: pointer;
   text-decoration: none;
   transition: background 0.2s ease;
+  white-space: nowrap;
 }
 
 .back-btn:hover {
@@ -29,6 +32,7 @@
 .create-workout-header h1 {
   margin: 0;
   color: #333;
+  font-size: 2rem;
 }
 
 .create-workout-form {
@@ -57,6 +61,7 @@
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -80,6 +85,7 @@
   border: 2px solid #e1e1e1;
   border-radius: 8px;
   transition: border-color 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .equipment-item:hover {
@@ -90,12 +96,14 @@
 .equipment-item input[type="checkbox"] {
   width: auto;
   margin: 0;
+  cursor: pointer;
 }
 
 .equipment-item label {
   margin: 0;
   cursor: pointer;
   font-weight: normal;
+  flex: 1;
 }
 
 .error-message {
@@ -112,6 +120,7 @@
   gap: 1rem;
   justify-content: flex-end;
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 .cancel-btn {
@@ -122,6 +131,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s ease;
+  font-size: 1rem;
 }
 
 .cancel-btn:hover {
@@ -137,6 +147,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s ease;
+  font-size: 1rem;
 }
 
 .submit-btn:hover:not(:disabled) {
@@ -146,4 +157,95 @@
 .submit-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .create-workout-container {
+    padding: 1rem;
+    padding-top: 120px;
+  }
+  
+  .create-workout-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .create-workout-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .back-btn {
+    align-self: flex-start;
+  }
+  
+  .create-workout-form {
+    padding: 1.5rem;
+  }
+  
+  .equipment-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .equipment-item {
+    padding: 1rem 0.75rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .cancel-btn,
+  .submit-btn {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .create-workout-container {
+    padding: 0.75rem;
+  }
+  
+  .create-workout-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .create-workout-form {
+    padding: 1rem;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .equipment-item {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .equipment-item label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .create-workout-container {
+    padding: 1.5rem;
+    padding-top: 110px;
+  }
+  
+  .create-workout-header h1 {
+    font-size: 1.85rem;
+  }
+  
+  .equipment-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate, useLocation } from 'react-router';
 import { logout } from '../store/slices/authSlice';
@@ -20,8 +21,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
-          <span className="brand-icon">💪</span>
-          <span className="brand-text">FitnessPro</span>
+          <span className="brand-text">FITENESS</span>
         </Link>
         
         <div className="navbar-nav">
@@ -31,24 +31,23 @@ const Navbar = () => {
                 to="/workouts" 
                 className={`nav-link ${isActive('/workouts') ? 'active' : ''}`}
               >
-                <span className="nav-icon">🏋️</span>
-                My Workouts
+                <span className="nav-text">My Workouts</span>
               </Link>
               <Link 
                 to="/create-workout" 
                 className={`nav-link ${isActive('/create-workout') ? 'active' : ''}`}
               >
-                <span className="nav-icon">➕</span>
-                Create Workout
+                <span className="nav-text">Create Workout</span>
               </Link>
               <div className="user-section">
                 <div className="user-info">
-                  <span className="user-avatar">👤</span>
-                  <span className="user-name">Hi, {user?.username || 'User'}!</span>
+                  <div className="user-avatar">
+                    <span>{user?.username?.charAt(0)?.toUpperCase() || 'U'}</span>
+                  </div>
+                  <span className="user-name">{user?.username || 'User'}</span>
                 </div>
                 <button onClick={handleLogout} className="logout-btn">
-                  <span className="logout-icon">🚪</span>
-                  Logout
+                  <span>Logout</span>
                 </button>
               </div>
             </>
@@ -58,15 +57,13 @@ const Navbar = () => {
                 to="/login" 
                 className={`nav-link ${isActive('/login') ? 'active' : ''}`}
               >
-                <span className="nav-icon">🔑</span>
-                Login
+                <span className="nav-text">Login</span>
               </Link>
               <Link 
                 to="/register" 
                 className="nav-button register"
               >
-                <span className="nav-icon">🚀</span>
-                Get Started
+                <span className="nav-text">Get Started</span>
               </Link>
             </>
           )}

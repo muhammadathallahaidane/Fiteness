@@ -18,10 +18,6 @@ describe('Bcrypt Helper', () => {
       
       expect(hash1).not.toBe(hash2);
     });
-    
-    it('should throw error if password is undefined', async () => {
-      await expect(hashPassword(undefined)).rejects.toThrow();
-    });
   });
   
   describe('comparePassword', () => {

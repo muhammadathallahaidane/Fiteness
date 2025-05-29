@@ -2,6 +2,8 @@ const request = require('supertest');
 const app = require('../../app');
 const { createTestUser } = require('../helpers/testHelpers');
 const errorHandler = require('../../middlewares/errorHandler');
+const { generateToken } = require('../../helpers/jwt'); // Tambahkan import ini
+const express = require('express'); // Tambahkan import ini
 
 describe('Error Handler Middleware', () => {
   let user, token;
@@ -73,8 +75,13 @@ describe('Error Handler Middleware', () => {
   });
   
   it('should handle TokenExpiredError (401)', async () => {
-    const expiredToken = generateToken({ id: user.id }, '0s');
-    await new Promise(resolve => setTimeout(resolve, 100));
+    // Perbaikan: Gunakan jwt.sign langsung untuk expired token yang benar
+    const jwt = require('jsonwebtoken');
+    const expiredToken = jwt.sign(
+      { id: user.id }, 
+      process.env.JWT_SECRET, 
+      { expiresIn: '-1h' } // Token yang benar-benar expired
+    );
     
     const response = await request(app)
       .get('/workoutLists')
@@ -230,6 +237,7 @@ describe('Error Handler Middleware', () => {
       .get('/test-unauthorized')
       .expect(401);
     
+    // Perbaikan: Sesuaikan dengan pesan default yang sebenarnya
     expect(response.body.message).toBe('Authentication failed');
   });
 

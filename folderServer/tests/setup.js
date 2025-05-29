@@ -3,6 +3,12 @@ const { exec } = require('child_process');
 const { promisify } = require('util');
 const execAsync = promisify(exec);
 
+// Set environment variables untuk testing
+process.env.NODE_ENV = 'test';
+process.env.GOOGLE_CLIENT_ID = 'test-google-client-id';
+process.env.JWT_SECRET = 'test-jwt-secret-key-for-testing';
+process.env.GEMINI_API_KEY = 'test-gemini-api-key';
+
 // Setup database sebelum semua test
 beforeAll(async () => {
   try {

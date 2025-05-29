@@ -13,6 +13,8 @@ const { GoogleGenAI } = require("@google/genai");
 class WorkoutListController {
   static async createWorkoutList(req, res, next) {
     try {
+      console.log('Creating workout list with data:', req.body);
+      console.log('User ID:', req.user.id);
       const UserId = req.user.id;
       const { BodyPartId, equipmentIds, name: workoutListName } = req.body; // equipmentIds adalah array of id, maksimal 2
 
@@ -53,10 +55,12 @@ class WorkoutListController {
 
       // Generate exercises menggunakan AI
       const equipmentNames = selectedEquipments.map((eq) => eq.name);
+      console.log('About to call generateExercisesFromAI');
       const generatedExercises = await generateExercisesFromAI(
         equipmentNames,
         bodyPart.name
       );
+      console.log('Generated exercises:', generatedExercises);
 
       if (!generatedExercises || generatedExercises.length === 0) {
         throw {
@@ -97,6 +101,7 @@ class WorkoutListController {
 
       res.status(201).json(finalWorkoutList);
     } catch (error) {
+      console.error('Error in createWorkoutList:', error);
       next(error);
     }
   }
@@ -131,10 +136,11 @@ class WorkoutListController {
     try {
       const { id } = req.params;
       const UserId = req.user.id;
-
+  
       const workoutList = await WorkoutList.findOne({
         where: { id, UserId },
-        attributes: ["id", "UserId", "name"],
+        // TAMBAHKAN createdAt dan updatedAt
+        attributes: ["id", "UserId", "name", "createdAt", "updatedAt"],
         include: [
           {
             model: BodyPart,
@@ -145,7 +151,6 @@ class WorkoutListController {
             attributes: {
               exclude: ["WorkoutListId", "createdAt", "updatedAt"],
             },
-            // HAPUS INCLUDE EQUIPMENT DULU
           },
         ],
       });
@@ -258,10 +263,10 @@ async function generateExercisesFromAI(equipmentNames, bodyPartName) {
   const prompt = `You are a professional fitness trainer.
 Create a list of 5 exercises to train the "${bodyPartName}" body part using the "${equipmentList}" equipment.
 For each exercise, provide the following information in a strict JSON format:
-1. "name": Name of the exercise (String).
-2. "steps": Detailed steps to perform the exercise, use numbering bullet and each step separated by a newline (String).
-3. "sets": Recommended number of sets (Integer).
-4. "repetitions": Number of repetitions per set (Integer).
+1. "name": Name of the exercise (String)./n
+2. "steps": Detailed steps to perform the exercise, use numbering bullet and each step separated by a newline (String)./n
+3. "sets": Recommended number of sets (Integer)./n
+4. "repetitions": Number of repetitions per set (Integer)./n
 5. "youtubeUrl": Youtube query URL for a video reference corresponding to the exercise name (String).
 
 Ensure the output is a valid JSON array containing 5 exercise objects. Do not include any other text outside of this JSON array.
@@ -274,12 +279,13 @@ Example of one exercise object in the array:
     "youtubeUrl": ""
 }`;
 
+  let result;
   try {
-    const result = await generateContent(prompt);
-    console.log("Gemini Raw Response:", result);
+    result = await generateContent(prompt);
+    console.log("Gemini Response:", result);
 
-    // Parse JSON response
-    const generatedExercises = JSON.parse(result);
+    // Tidak perlu JSON.parse lagi karena sudah di-parse di gemini.api.js
+    const generatedExercises = result;
 
     if (!Array.isArray(generatedExercises) || generatedExercises.length === 0) {
       console.error(
