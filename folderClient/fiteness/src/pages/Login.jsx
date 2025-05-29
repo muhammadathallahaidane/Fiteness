@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router';
 import { loginUser, clearError } from '../store/slices/authSlice';
+import YouTubeLoginButton from '../components/YouTubeLoginButton';
 import GoogleLoginButton from '../components/GoogleLoginButton';
 import './Auth.css';
 
@@ -40,10 +41,12 @@ const Login = () => {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit} className="auth-form">
+    <div className="login-container">
+      <div className="login-card">
+        <h2>Login to Fitness App</h2>
+        
+        {/* Traditional login form */}
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
@@ -72,7 +75,15 @@ const Login = () => {
           </button>
         </form>
         
-        <GoogleLoginButton />
+        <div className="social-login-divider">
+          <span>atau login dengan</span>
+        </div>
+        
+        {/* Social login buttons */}
+        <div className="social-login-buttons">
+          <GoogleLoginButton />
+          <YouTubeLoginButton />
+        </div>
         
         <p className="auth-link">
           Don't have an account? <Link to="/register">Register here</Link>

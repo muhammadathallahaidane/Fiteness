@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { googleLogin } from '../store/slices/authSlice';
+import { youtubeLogin } from '../store/slices/authSlice';
 
-const GoogleLoginButton = () => {
+const YouTubeLoginButton = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,37 +21,43 @@ const GoogleLoginButton = () => {
         });
 
         window.google.accounts.id.renderButton(
-          document.getElementById('google-signin-button'),
+          document.getElementById('youtube-signin-button'),
           {
-            theme: 'outline',
+            theme: 'filled_red', // YouTube red theme
             size: 'large',
             width: '100%',
             text: 'signin_with',
             shape: 'rectangular',
+            logo_alignment: 'left',
           }
         );
       }
     };
 
     return () => {
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
+      document.head.removeChild(script);
     };
   }, []);
 
   const handleCredentialResponse = (response) => {
-    dispatch(googleLogin(response.credential));
+    console.log('YouTube login response:', response);
+    dispatch(youtubeLogin(response.credential));
   };
 
   return (
-    <div className="google-login-container">
-      <div className="divider">
-        <span>atau</span>
-      </div>
-      <div id="google-signin-button"></div>
+    <div className="youtube-login-container">
+      <div id="youtube-signin-button"></div>
+      <style jsx>{`
+        .youtube-login-container {
+          margin: 10px 0;
+        }
+        #youtube-signin-button {
+          display: flex;
+          justify-content: center;
+        }
+      `}</style>
     </div>
   );
 };
 
-export default GoogleLoginButton;
+export default YouTubeLoginButton;

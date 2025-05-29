@@ -49,19 +49,21 @@ const ExerciseCard = ({ exercise, editMode, onUpdate }) => {
         </div>
       )}
       
-      {/* Tambahkan section untuk steps */}
+      {/* Updated steps section dengan format numbered list */}
       {exercise.steps && (
         <div className="exercise-steps">
           <h4>Steps:</h4>
-          <div className="steps-content">
+          <ol className="steps-list">
             {exercise.steps.split('\n').filter(step => step.trim()).map((step, index) => (
-              <p key={index}>{step.replace(/^\d+\.\s*/, '')}</p>
+              <li key={index} className="step-item">
+                {step.replace(/^\d+\.\s*/, '').trim()}
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       )}
       
-      {/* Tambahkan section untuk YouTube link */}
+      {/* YouTube section tetap sama */}
       {exercise.youtubeUrl && (
         <div className="exercise-video">
           <h4>Video Tutorial:</h4>

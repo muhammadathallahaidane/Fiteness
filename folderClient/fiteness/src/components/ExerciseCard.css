@@ -30,8 +30,8 @@
   color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   margin-left: 1rem;
 }
 
@@ -40,6 +40,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
 }
 
 .exercise-field {
@@ -50,14 +53,14 @@
 
 .exercise-field label {
   font-weight: 600;
-  color: #333;
+  color: #555;
   font-size: 0.9rem;
 }
 
 .exercise-field span {
-  color: #666;
   font-size: 1.1rem;
   font-weight: 500;
+  color: #333;
 }
 
 .exercise-field input {
@@ -74,9 +77,11 @@
 }
 
 .exercise-description {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e1e1e1;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  border-left: 4px solid #4a90e2;
 }
 
 .exercise-description p {
@@ -86,78 +91,113 @@
   font-size: 0.9rem;
 }
 
+/* Updated styles untuk steps dengan numbered list */
 .exercise-steps {
   margin-top: 15px;
-  padding: 15px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  border-left: 4px solid #007bff;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  border-left: 5px solid #28a745;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .exercise-steps h4 {
-  margin: 0 0 10px 0;
-  color: #333;
+  margin: 0 0 15px 0;
+  color: #28a745;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exercise-steps h4::before {
+  content: "📋";
   font-size: 16px;
-  font-weight: 600;
 }
 
-.steps-content {
-  line-height: 1.6;
-}
-
-.steps-content p {
-  margin: 8px 0;
+.steps-list {
+  margin: 0;
   padding-left: 0;
-  color: #555;
-  font-size: 14px;
-}
-
-/* Styling untuk nomor dalam steps */
-.steps-content p:not(:empty) {
-  counter-increment: step-counter;
-  position: relative;
-  padding-left: 25px;
-}
-
-.steps-content p:not(:empty)::before {
-  content: counter(step-counter) ". ";
-  position: absolute;
-  left: 0;
-  font-weight: 600;
-  color: #007bff;
-}
-
-.steps-content {
+  list-style: none;
   counter-reset: step-counter;
+}
+
+.step-item {
+  counter-increment: step-counter;
+  margin: 12px 0;
+  padding: 12px 15px 12px 45px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  line-height: 1.6;
+  color: #444;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.step-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.step-item::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
 }
 
 .exercise-video {
   margin-top: 15px;
-  padding: 10px;
-  background-color: #fff3cd;
-  border-radius: 6px;
+  padding: 15px;
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border-radius: 10px;
   border: 1px solid #ffeaa7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .exercise-video h4 {
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   color: #856404;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .youtube-link {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   color: #dc3545;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
-  transition: color 0.2s;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 2px solid #dc3545;
 }
 
 .youtube-link:hover {
-  color: #c82333;
-  text-decoration: underline;
+  background: #dc3545;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
 }

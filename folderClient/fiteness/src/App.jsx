@@ -9,7 +9,7 @@ import WorkoutList from './pages/WorkoutList';
 import WorkoutDetail from './pages/WorkoutDetail';
 import CreateWorkout from './pages/CreateWorkout';
 import ProtectedRoute from './components/ProtectedRoute';
-import './App.css';
+// import './App.css'; // HAPUS BARIS INI
 
 function App() {
   return (

@@ -53,6 +53,40 @@ export const googleLogin = createAsyncThunk(
   }
 );
 
+// Tambahkan YouTube login async thunk setelah googleLogin
+export const youtubeLogin = createAsyncThunk(
+  'auth/youtubeLogin',
+  async (idToken, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${API_URL}/users/youtube-login`, {
+        idToken,
+      });
+      localStorage.setItem('token', response.data.access_token);
+      
+      // Show success message
+      Swal.fire({
+        icon: 'success',
+        title: 'YouTube Login Berhasil!',
+        text: `Selamat datang, ${response.data.user.username}!`,
+        timer: 2000,
+        showConfirmButton: false
+      });
+      
+      return response.data;
+    } catch (error) {
+      const errorMessage = error.response?.data?.message || 'YouTube login failed';
+      
+      Swal.fire({
+        icon: 'error',
+        title: 'YouTube Login Gagal',
+        text: errorMessage,
+      });
+      
+      return rejectWithValue(errorMessage);
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -123,8 +157,8 @@ const authSlice = createSlice({
           title: 'Registrasi Gagal!',
           text: action.payload,
         });
-      });
-      // Google Login
+      })
+      // Google Login - TAMBAHAN BARU
       .addCase(googleLogin.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -149,6 +183,21 @@ const authSlice = createSlice({
           title: 'Google Login Gagal!',
           text: action.payload,
         });
+      })
+      // YouTube login cases
+      .addCase(youtubeLogin.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(youtubeLogin.fulfilled, (state, action) => {
+        state.loading = false;
+        state.isAuthenticated = true;
+        state.user = action.payload.user;
+        state.token = action.payload.access_token;
+      })
+      .addCase(youtubeLogin.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });
