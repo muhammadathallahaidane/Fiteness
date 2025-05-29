@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://aidane.site';
 
 // Async thunks
 export const loginUser = createAsyncThunk(
