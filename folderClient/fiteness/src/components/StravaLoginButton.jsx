@@ -13,7 +13,7 @@ const StravaLoginButton = () => {
       return;
     }
     
-    const redirectUri = 'http://localhost:5173/auth/strava/callback';
+    const redirectUri = import.meta.env.VITE_STRAVA_REDIRECT_URI || 'http://localhost:5173/auth/strava/callback';
     const scope = 'read,activity:read_all';
     
     const stravaAuthUrl = `https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&approval_prompt=force&scope=${scope}`;
