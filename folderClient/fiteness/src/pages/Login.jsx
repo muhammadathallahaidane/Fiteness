@@ -54,7 +54,7 @@ const Login = () => {
         
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email" style={{color: "white"}}>Email Address</label>
             <input
               type="email"
               id="email"
@@ -62,12 +62,11 @@ const Login = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email address"
-              required
             />
           </div>
           
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" style={{color: "white"}}>Password</label>
             <div className="password-input-wrapper">
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -76,7 +75,6 @@ const Login = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
-                required
               />
               <button
                 type="button"
