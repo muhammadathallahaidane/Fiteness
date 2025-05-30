@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router';
-import { registerUser, clearError } from '../store/slices/authSlice';
+import { registerUser } from '../store/slices/authSlice';
 import './Auth.css';
 
 const Register = () => {
@@ -19,6 +19,9 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLoading, error, isAuthenticated } = useSelector((state) => state.auth);
+  
+  // State untuk track registrasi berhasil
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -26,11 +29,38 @@ const Register = () => {
     }
   }, [isAuthenticated, navigate]);
 
+  // Tambahkan useEffect untuk redirect setelah register berhasil
   useEffect(() => {
-    return () => {
-      dispatch(clearError());
-    };
-  }, [dispatch]);
+    if (registrationSuccess) {
+      const timer = setTimeout(() => {
+        navigate('/login');
+      }, 1000); // Delay 2.5 detik setelah SweetAlert
+      
+      return () => clearTimeout(timer);
+    }
+  }, [registrationSuccess, navigate]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    try {
+      await dispatch(registerUser({
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+      })).unwrap();
+      
+      // Set flag registrasi berhasil
+      setRegistrationSuccess(true);
+    } catch (error) {
+      // Error sudah di-handle di authSlice
+      console.error('Registration failed:', error);
+    }
+  };
 
   const calculatePasswordStrength = (password) => {
     let strength = 0;
@@ -83,20 +113,6 @@ const Register = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-    
-    dispatch(registerUser({
-      username: formData.username,
-      email: formData.email,
-      password: formData.password,
-    }));
-  };
-
   const getPasswordStrengthLevel = () => {
     if (passwordStrength < 25) return { level: 'WEAK', color: '#ff4757' };
     if (passwordStrength < 50) return { level: 'FAIR', color: '#ff6348' };
@@ -119,7 +135,7 @@ const Register = () => {
         
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username" style={{color: "white"}} >Username</label>
             <input
               type="text"
               id="username"
@@ -128,7 +144,6 @@ const Register = () => {
               onChange={handleChange}
               placeholder="Choose your username"
               className={validationErrors.username ? 'error' : ''}
-              required
             />
             {validationErrors.username && (
               <span className="field-error">{validationErrors.username}</span>
@@ -136,7 +151,7 @@ const Register = () => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email" style={{color: "white"}}>Email Address</label>
             <input
               type="email"
               id="email"
@@ -145,7 +160,6 @@ const Register = () => {
               onChange={handleChange}
               placeholder="Enter your email address"
               className={validationErrors.email ? 'error' : ''}
-              required
             />
             {validationErrors.email && (
               <span className="field-error">{validationErrors.email}</span>
@@ -153,7 +167,7 @@ const Register = () => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" style={{color: "white"}}>Password</label>
             <div className="password-input-wrapper">
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -163,7 +177,6 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="Create a secure password"
                 className={validationErrors.password ? 'error' : ''}
-                required
               />
               <button
                 type="button"
@@ -195,7 +208,7 @@ const Register = () => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="confirmPassword">Confirm Password</label>
+            <label htmlFor="confirmPassword" style={{color: "white"}}>Confirm Password</label>
             <div className="password-input-wrapper">
               <input
                 type={showConfirmPassword ? 'text' : 'password'}
@@ -205,7 +218,6 @@ const Register = () => {
                 onChange={handleChange}
                 placeholder="Confirm your password"
                 className={validationErrors.confirmPassword ? 'error' : ''}
-                required
               />
               <button
                 type="button"

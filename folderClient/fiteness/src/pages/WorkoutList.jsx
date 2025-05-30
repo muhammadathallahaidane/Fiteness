@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchWorkoutLists, deleteWorkoutList } from '../store/slices/workoutSlice';
-import { fetchEquipments } from '../store/slices/equipmentSlice'; // Ubah dari fetchEquipment ke fetchEquipments
+import { fetchEquipments } from '../store/slices/equipmentSlice';
 import { fetchBodyParts } from '../store/slices/bodyPartSlice';
 import WorkoutCard from '../components/WorkoutCard';
 import CreateWorkoutModal from '../components/CreateWorkoutModal';
+import Swal from 'sweetalert2'; // Tambahkan import ini
 import './WorkoutList.css';
 
 const WorkoutList = () => {
@@ -22,9 +23,25 @@ const WorkoutList = () => {
   }, [dispatch]);
 
   const handleDeleteWorkout = (id) => {
-    if (window.confirm('Are you sure you want to delete this workout?')) {
-      dispatch(deleteWorkoutList(id));
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(deleteWorkoutList(id));
+        Swal.fire(
+          'Deleted!',
+          'Your workout has been deleted.',
+          'success'
+        );
+      }
+    });
   };
 
   if (isLoading) {

@@ -113,13 +113,64 @@
 .form-group label {
   display: block;
   margin-bottom: 0.75rem;
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 0.9) !important; /* Ubah dari #ffffff ke rgba untuk lebih terlihat */
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   opacity: 1;
+}
+
+/* Password toggle button - perbaiki posisi center */
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%; /* Tambahkan ini */
+  transform: translateY(-50%); /* Tambahkan ini untuk center vertical */
+  background: none;
+  border: none;
+  color: rgba(255, 215, 0, 0.8) !important;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 10; /* Tambahkan z-index untuk memastikan tombol di atas */
+}
+
+/* Pastikan form-group memiliki posisi relative untuk absolute positioning */
+.form-group {
+  position: relative;
+  margin-bottom: 1rem; /* Tambahkan margin bottom untuk spacing */
+}
+
+/* Perbaiki padding input agar ada ruang untuk tombol show password */
+.form-group input[type="password"],
+.form-group input[name="password"],
+.form-group input[name="confirmPassword"] {
+  width: 100%;
+  padding: 1rem 3rem 1rem 1.25rem; /* Tambah padding kanan untuk ruang tombol */
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Styling khusus untuk input yang bukan password */
+.form-group input:not([type="password"]):not([name="password"]):not([name="confirmPassword"]) {
+  width: 100%;
+  padding: 1rem 1.25rem; /* Padding normal untuk input biasa */
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 /* Input styling - perbaiki warna background dan text */
